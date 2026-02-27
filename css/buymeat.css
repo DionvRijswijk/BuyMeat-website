@@ -1,0 +1,133 @@
+:root {
+            --rood: #AD3E3E;
+            --geel: #D5BF91;
+            --wit: #EFE9DE;
+            --zwart: #000000;
+        }
+        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ingrid Darling', cursive;
+            background-color: var(--rood);
+            color: var(--zwart);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--rood);
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--zwart);
+            margin-left: 2rem;
+            font-size: 3.2rem;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .hero {
+            background-color: var(--wit);
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            font-size: 2.0rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--rood);
+            color: var(--wit);
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 2.1rem;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .menu {
+            padding: 1rem 2rem;
+            background-color: var(--geel);
+            text-align: center;
+        }
+
+        .menu h3 {
+            font-size: 5.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background-color: var(--wit);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .menu-item h4 {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .menu-item p {
+            font-size: 1.9rem;
+        }
+
+        footer {
+            background-color: var(--rood);
+            text-align: center;
+            padding: 2rem;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+
+            nav a {
+                margin: 0 1rem;
+            }
+        }
