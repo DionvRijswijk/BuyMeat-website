@@ -25,6 +25,44 @@
     </nav>
 </header>
 
+<?php
+$host='db';
+$db='mydatabase';
+$user='user';
+$password='password';
+$charset='utf8mb4';
+
+$opties= [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+
+$dsn= "mysql:host=$host;dbname=$db;charset=$charset";
+
+try {
+    $pdo=new PDO($dsn, $user, $password, $opties);
+    echo "Database connectie gelukt <br/>";
+} catch (PDOException $e) {
+
+echo $e->getMessage();
+
+die("sorry, database probleem");
+}
+
+$sql="SELECT * FROM gerechten";
+
+$statement = $pdo->prepare($sql);
+
+$statement->execute();
+
+$gerechten=$statement->fetchAll();
+
+echo "<pre>";
+print_r($gerechten);
+echo "<pre>";
+?>
+
 <section class="hero" id="home">
     <h1>Exclusieve Vleesbeleving</h1>
     <p>Premium steaks, ambachtelijk bereid met passie. Een minimalistische en luxe ervaring voor echte vleesliefhebbers.</p>

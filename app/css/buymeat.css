@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Ingrid Darling', cursive;
+            /* font-family: 'Ingrid Darling', cursive; */
             background-color: var(--rood);
             color: var(--zwart);
             line-height: 1.6;
@@ -25,11 +25,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-family: 'Ingrid Darling', cursive;
         }
 
         header h1 {
             font-size: 4.5rem;
             letter-spacing: 2px;
+            font-family: 'Ingrid Darling', cursive;
         }
 
         nav a {
@@ -48,17 +50,20 @@
             background-color: var(--wit);
             padding: 1rem 2rem;
             text-align: center;
+            font-family: 'Ingrid Darling', cursive;
         }
 
         .hero h2 {
             font-size: 5rem;
             margin-bottom: 1rem;
+            font-family: 'Ingrid Darling', cursive;
         }
 
         .hero p {
             max-width: 600px;
             margin: 0 auto 2rem auto;
             font-size: 2.0rem;
+            font-family: 'Ingrid Darling', cursive;
         }
 
         .btn {
