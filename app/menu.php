@@ -27,29 +27,17 @@
 
 
 <?php
-$host='db';
-$db='mydatabase';
-$user='user';
-$password='password';
-$charset='utf8mb4';
 
-$opties= [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
+print_r($_GET["search"]);
+if ($hasusersearched);
+    {
+        $sql="SELECT * FROM gerechten WHERE gerechten LIKE search";
+    }
 
-$dsn= "mysql:host=$host;dbname=$db;charset=$charset";
-
-try {
-    $pdo=new PDO($dsn, $user, $password, $opties);
-    echo "Database connectie gelukt <br/>";
-} catch (PDOException $e) {
-
-echo $e->getMessage();
-
-die("sorry, database probleem");
-}
+    else {
+        $sql="SELECT * FROM gerechten";
+    }
+include_once("includes/pdo.php");
 
 $sql="SELECT * FROM gerechten";
 
@@ -60,7 +48,10 @@ $statement->execute();
 $gerechten=$statement->fetchAll();
 
 
+include_once("includes/searchbar.php");
 ?>
+
+
 
 <section class="hero" id="home">
     
