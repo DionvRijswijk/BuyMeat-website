@@ -77,8 +77,8 @@ $gerechten=$statement->fetchAll();
             $prijs=$gerecht["Prijs"];
             $vegetarisch=$gerecht["vegetarisch"];
             echo "<div class='menu-item'>";
-            echo "<h4>'$naam, $id, $prijs'</h4>";
-            echo "<p> 'test tekst'</p>";
+            echo "<h4>$naam, $id, $prijs</h4>";
+            echo "<p> test tekst</p>";
             echo "</div>";
         }
         ?>
