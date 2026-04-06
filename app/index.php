@@ -1,3 +1,9 @@
+<?php
+    session_start();   
+    
+    $isLoggedIn = isset($_SESSION["isLoggedIn"]) ? $_SESSION["isLoggedIn"] : false;
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>

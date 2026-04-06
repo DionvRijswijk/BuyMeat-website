@@ -28,27 +28,30 @@
 
 <?php
 
-print_r($_GET["search"]);
-if ($hasusersearched);
-    {
-        $sql="SELECT * FROM gerechten WHERE gerechten LIKE search";
-    }
 
-    else {
-        $sql="SELECT * FROM gerechten";
-    }
 include_once("includes/pdo.php");
 
-$sql="SELECT * FROM gerechten";
 
-$statement = $pdo->prepare($sql);
+
+if (isset($_GET["search"]))
+    {
+        $zoekterm = "%" . $_GET["search"] . "%";
+        $sql="SELECT * FROM gerechten WHERE Naam LIKE :search";
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(":search", $zoekterm);
+    } else 
+    {
+        $sql="SELECT * FROM gerechten";
+        $statement = $pdo->prepare($sql);
+    }
+
 
 $statement->execute();
-
 $gerechten=$statement->fetchAll();
 
 
 include_once("includes/searchbar.php");
+
 ?>
 
 
