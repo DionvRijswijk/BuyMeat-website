@@ -20,8 +20,9 @@
     <nav>
         <a href="index.php">Home</a>
         <a href="menu.php">Menu</a>
-        <a href="#reserveren.php">Reserveren</a>
+        <a href="reserveren.php">Reserveren</a>
         <a href="contact.php">Contact</a>
+        <a href="login.php">logout</a>
     </nav>
 </header>
 
@@ -70,9 +71,9 @@ include_once("includes/searchbar.php");
             $id=$gerecht["ID"];
             $prijs=$gerecht["Prijs"];
             $vegetarisch=$gerecht["vegetarisch"];
+            $Beschrijving=$gerecht["Beschrijving"];
             echo "<div class='menu-item'>";
-            echo "<h4>$naam, $id, $prijs</h4>";
-            echo "<p> test tekst</p>";
+            echo "<h4>$naam, $prijs, $Beschrijving</h4>";
             echo "</div>";
         }
         ?>
@@ -80,6 +81,12 @@ include_once("includes/searchbar.php");
        
     </div>
 </section>
+
+<footer>
+    <p>© 2026 BuyMeat — Luxe Vleesrestaurant</p>
+</footer>
+
+
 
 <section class="hero" id="home">
     

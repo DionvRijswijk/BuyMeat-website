@@ -1,7 +1,32 @@
 <?php
 session_start();
-?>
 
+$username = "Dion";
+$password = "Dion";
+
+if (isset($_POST["submit"])) {
+    
+
+    if ($_POST["username"] === $username && $_POST["password"] === $password) {
+        $_SESSION["isLoggedIn"]=true;
+
+    }else{
+        $_SESSION["isLoggedIn"]=false;
+        session_destroy();
+    }
+
+
+    if ($_SESSION["isLoggedIn"]==true){
+        header("Location: index.php");
+        exit();
+
+    }
+    print_r($_SESSION);
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,35 +36,16 @@ session_start();
 </head>
 <body>
   
-<div class="container-space-around gray-background"> test</div>
-
-<?php
-$username = "Dion";
-$password = "Dion";
-
-if (isset($_POST["submit"])) {
-
-if ($_POST["username"] === $username && $_POST["password"] === $password) {
-
-$_SESSION ["isLoggedIn"]=true;
-
-}else{
-    session_destroy();
-}
-
-print_r($_SESSION);
-
-}
+<!-- <div class="container-space-around gray-background"> test</div> -->
 
 
-?>
 
 
 
 <div class="login">
     <form name="naam" action="" method="post">
-        <input name="username" type="text" placeholder="" require/>
-        <input name="password" type="text" placeholder="zoek naar een gerecht"require />
+        <input name="username" type="text" placeholder="Gebruikersnaam" require/>
+        <input name="password" type="text" placeholder="Wachtwoord"require />
         <input name="submit" type="submit" value="enter">
 </form>
 </div>

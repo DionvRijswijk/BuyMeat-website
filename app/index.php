@@ -27,31 +27,64 @@
         <a href="index.php">Home</a>
         <a href="menu.php">Menu</a>
         <a href="reserveren.php">Reserveren</a>
-        <a href="#contact.php">Contact</a>
+        <a href="contact.php">Contact</a>
+        <a href="login.php">logout</a>
     </nav>
 </header>
 
 <section class="hero" id="home">
     <h1>Exclusieve Vleesbeleving</h1>
     <p>Premium steaks, ambachtelijk bereid met passie. Een minimalistische en luxe ervaring voor echte vleesliefhebbers.</p>
-    <a href="#menu" class="btn">Bekijk Menu</a>
+    <a href="menu.php" class="btn">Bekijk Menu</a>
 </section>
 
+
+<?php
+
+
+include_once("includes/pdo.php");
+
+
+
+if (isset($_GET["search"]))
+    {
+        $zoekterm = "%" . $_GET["search"] . "%";
+        $sql="SELECT * FROM gerechten WHERE Naam LIKE :search";
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(":search", $zoekterm);
+    } else 
+    {
+        $sql="SELECT * FROM gerechten";
+        $statement = $pdo->prepare($sql);
+    }
+
+
+$statement->execute();
+$gerechten=$statement->fetchAll();
+
+
+
+
+?>
+
 <section class="menu" id="menu">
-    <h3>Onze Specialiteiten</h3>
+    <h3>Onze gerechten</h3>
+    
     <div class="menu-items">
-        <div class="menu-item">
-            <h4>Ribeye Steak</h4>
-            <p>Sappig, perfect gegrild en vol smaak.</p>
-        </div>
-        <div class="menu-item">
-            <h4>Filet Mignon</h4>
-            <p>Botermals rundvlees van topkwaliteit.</p>
-        </div>
-        <div class="menu-item">
-            <h4>T-Bone</h4>
-            <p>Een krachtige klassieker voor de fijnproever.</p>
-        </div>
+        <?php
+        foreach ($gerechten as $gerecht){
+            $naam=$gerecht["Naam"];
+            $id=$gerecht["ID"];
+            $prijs=$gerecht["Prijs"];
+            $vegetarisch=$gerecht["vegetarisch"];
+            echo "<div class='menu-item'>";
+            echo "<h4>$naam, $id, $prijs</h4>";
+            echo "<p> test tekst</p>";
+            echo "</div>";
+        }
+        ?>
+        
+       
     </div>
 </section>
 
