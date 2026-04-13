@@ -27,7 +27,7 @@
         }
 
         body {
-            /* font-family: 'Ingrid Darling', cursive; */
+            font-family: 'Ingrid Darling', cursive;
             background-color: var(--rood);
             color: var(--zwart);
             line-height: 1.6;
@@ -135,6 +135,7 @@
             text-align: center;
             padding: 2rem;
             font-size: 2rem;
+            font-family: 'Ingrid Darling', cursive;
         }
 
         @media (max-width: 768px) {

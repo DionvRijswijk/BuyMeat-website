@@ -8,6 +8,7 @@ if (isset($_POST["submit"])) {
     
 
     if ($_POST["username"] === $username && $_POST["password"] === $password) {
+
         $_SESSION["isLoggedIn"]=true;
 
     }else{
@@ -17,11 +18,11 @@ if (isset($_POST["submit"])) {
 
 
     if ($_SESSION["isLoggedIn"]==true){
-        header("Location: index.php");
+        header("Location: admin.php");
         exit();
 
     }
-    print_r($_SESSION);
+    print_r("incorrect password/username");
 
 }
 
@@ -43,7 +44,7 @@ if (isset($_POST["submit"])) {
 
 
 <div class="login">
-    <form name="naam" action="" method="post">
+    <form name="naam" action="login.php" method="post">
         <input name="username" type="text" placeholder="Gebruikersnaam" require/>
         <input name="password" type="text" placeholder="Wachtwoord"require />
         <input name="submit" type="submit" value="enter">

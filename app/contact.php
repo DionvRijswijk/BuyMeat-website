@@ -23,6 +23,7 @@
         <a href="reserveren.php">Reserveren</a>
         <a href="contact.php">Contact</a>
         <a href="login.php">logout</a>
+        <a href="admin.php">admin</a>
     </nav>
 
 </header>

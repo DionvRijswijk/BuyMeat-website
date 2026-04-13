@@ -20,17 +20,10 @@
     </style>
 </head>
 <body>
+<?php
+include_once("header.php");
+?>
 
-<header>
-    <h1>BuyMeat</h1>
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="menu.php">Menu</a>
-        <a href="reserveren.php">Reserveren</a>
-        <a href="contact.php">Contact</a>
-        <a href="login.php">logout</a>
-    </nav>
-</header>
 
 <section class="hero" id="home">
     <h1>Exclusieve Vleesbeleving</h1>
@@ -77,9 +70,9 @@ $gerechten=$statement->fetchAll();
             $id=$gerecht["ID"];
             $prijs=$gerecht["Prijs"];
             $vegetarisch=$gerecht["vegetarisch"];
+             $Beschrijving=$gerecht["Beschrijving"];
             echo "<div class='menu-item'>";
-            echo "<h4>$naam, $id, $prijs</h4>";
-            echo "<p> test tekst</p>";
+            echo "<h4>$naam, $id, $prijs, $Beschrijving</h4>";
             echo "</div>";
         }
         ?>
