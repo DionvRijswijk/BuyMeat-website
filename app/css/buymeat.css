@@ -1,5 +1,5 @@
 :root {
-            --rood: #AD3E3E;
+            --rood: #ad3e3e;
             --geel: #D5BF91;
             --wit: #EFE9DE;
             --zwart: #000000;
@@ -11,14 +11,42 @@
     justify-content: space-around;
 }
 
-.gray-background {
+.red-background {
     display: flex;
     justify-content:center;
-    width: 500px;
-    height: 500px;
-    background-color: rgb(59, 59, 59);
+    width: 1450px;
+    height: 900px;
+    background-color: #ad3e3e;
 
 }
+
+.red-block{
+    display: flex;
+    justify-content:space-around;
+    width: 1450px;
+    height: 150px;
+    background-color: #ad3e3e;
+}
+
+.red-button{
+    display: flex;
+    justify-content:flex-end;
+    width: 50px;
+    height: 50px;
+    background-color: #f67878;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+display: flex;
+gap: 16px;
+
+}
+
 
         * {
             margin: 0;

@@ -1,6 +1,6 @@
 <?php
  session_start();
-print_r($_SESSION);
+// print_r($_SESSION);
 //  if (!isset($_SESSION['isLoggedIn'])); {
 //          header("Location: login.php");
 //          exit();
@@ -12,7 +12,41 @@ print_r($_SESSION);
 
 
 
-?> 
+
+// session_start();
+if (!isset($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"]){
+    header ("location: login.php");
+    exit();
+}
+require_once("includes/pdo.php");
+
+if (isset($_POST["add"])){
+    echo "formulier verzonden";
+$naam=$_POST["naam"];
+$prijs=$_POST["prijs"];
+$beschrijving=$_POST["beschrijving"];
+try{
+    $sql = "INSERT INTO gerechten (naam, prijs, beschrijving) VALUES (:naam, :prijs, :beschrijving)";
+    $statement= $pdo->prepare($sql);
+    $statement->bindValue(":naam", $naam);
+    $statement->bindValue(":prijs", $prijs);
+    $statement->bindValue(":beschrijving", $beschrijving);
+    $statement->execute();
+    $success = "gerecht sucessvol toegevoegd";
+
+echo "insert uitgevoerd";
+    } catch (PDOexception $e) {
+        $error = "er is een fout opgetreden " . $e->getMessage();
+        echo $error;
+    }
+
+
+}
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -48,46 +82,103 @@ print_r($_SESSION);
     <h1> <br>
 
 </h1>
+
 </section>
+<form action="admin.php" method="post">
+<input type="text" name="naam"></input>
+<input type="number" name="prijs"></input>
+<input type="text" name="beschrijving"></input>
+<button type="submit" name="add">
+    <i>Add to menu</i></button>
 
 <section class="menu" id="menu">
     <h1> <br>
 <br>
 <br>
+
+
+
+<!-- <section class="red-background" id="menu"> -->
 <br>
-<br>
-<br>
-<?php
-session_start();
-if (isset($_SESSION["isLoggedIn"]) || !$_SESSION["isLoggedIn"]){
-    header ("location: login.php");
-    exit();
-}
-require_once("../includes/pdo.php");
+<div class="red-block" id="menu"> 
+    <div> Naam </div>
+    <div> Prijs </div>
+    <div> ID </div>
+    <div> beschrijving </div>
+    <div class="buttons"> 
+        <div class="red-button" id="menu"> delete
 
-if (isset($_POST["submit"])){
-    $naam= $_POST["naam"];
-    $prijs= $_POST["prijs"];
-    $beschrijving= $_POST["beschrijving"];
+        </div>
+                <div class="red-button" id="menu">  edit
+            
+        </div>
+
+    </div> 
+</div>
+<br> 
+<div class="red-block" id="menu"> 
+    <div> Naam </div>
+    <div> Prijs </div>
+    <div> ID </div>
+    <div> beschrijving </div>
+    <div class="buttons"> 
+        <div class="red-button" id="menu"> delete
+
+        </div>
+                <div class="red-button" id="menu">  edit
+            
+        </div>
+       
+    </div> 
 
 
-try{
-    $sql = "INSERT INTO gerechten (naam, prijs, beschrijving) VALUES (:naam, :prijs, :beschrijving)";
-    $statement = $pdo->prepare($sql);
-    $statement->bindValue(:naam, $naam);
-    $statement->bindValue(:prijs, $prijs);
-    $statement->bindValue(:beschrijving, $beschrijving);
-    $statement->execute();
-    $success = "gerecht sucessvol toegevoegd";
+    
+</div>
 
 
-    } catch (PDOexception $e) {
-        $error = "er is een fout opgetreden" . $e->getMessage();
-    }
+</button>
 
 
-}
-?>
+
+</form>
+ 
+
+    <br> 
+<div class="red-block" id="menu"> 
+    <div> Naam </div>
+    <div> Prijs </div>
+    <div> ID </div>
+    <div> beschrijving </div>
+    <div class="buttons"> 
+        <div class="red-button" id="menu"> delete
+
+        </div>
+                <div class="red-button" id="menu">  edit
+            
+        </div>
+
+    </div> 
+
+
+</div>
+
+<br> 
+<div class="red-block" id="menu"> 
+    <div> Naam </div>
+    <div> Prijs </div>
+    <div> ID </div>
+    <div> beschrijving </div>
+    <div class="buttons"> 
+        <div class="red-button" id="menu"> delete
+
+        </div>
+                <div class="red-button" id="menu">  edit
+            
+        </div>
+
+    </div> 
+
+    
 <br>
 <br>
 <br>
